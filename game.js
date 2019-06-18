@@ -2,10 +2,10 @@ require('libs/weapp-adapter/index');
 var Parser = require('libs/xmldom/dom-parser');
 window.DOMParser = Parser.DOMParser;
 require('libs/wx-downloader.js');
-require('src/settings.d85b6');
+require('src/settings');
 var settings = window._CCSettings;
-require('main.d7ee6');
-require(settings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.1b9fe.js');
+require('main');
+require(settings.debug ? 'cocos2d-js.js' : 'cocos2d-js-min.js');
 require('./libs/engine/index.js');
 
 // Adjust devicePixelRatio

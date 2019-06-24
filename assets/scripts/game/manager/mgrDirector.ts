@@ -2,9 +2,7 @@ import Manager from "../../ulframework/manager/Manager";
 import DialogBase from '../../ulframework/view/DialogBase';
 import ViewBase from "../../ulframework/view/ViewBase";
 import Const, { ResourceType } from "../Const";
-import mgrPool from "./mgrPool";
 import Tools from "../../ulframework/utils/Tools";
-import Timer from "../../ulframework/utils/Timer";
 import vWarpSceneNode from "../view/node/vWarpSceneNode";
 
 

@@ -5,40 +5,6 @@ import mgrAlu from "./mgrAlu";
 import mgrDirector from './mgrDirector';
 
 const TASKS = [
-
-    ["achievement_db", "m"],
-    ["achievement_target_db", "m"],
-    ["ad_event_db", "m"],
-    ["alu_db", "m"],
-    ["anim_node_db", "m"],
-
-
-    ["cake_part_db", "m"],
-    ["cake_materail_db", "m"],
-    ["cake_type_db", "m"],
-    ["cop_db", "m"],
-    ["cop_process_db", "m"],
-    ["customer_db", "m"],
-
-    ["guide_db", "ma"],
-
-    ["item_template_db", "m"],
-    ["item_recover_db", "m"],
-
-    ["jump_other_game_db", "m"],
-
-    ["particle_db", "m"],
-
-    ["sign_db", "ma"],
-    ["sound_db", "m"],
-    ["spine_db", "m"],
-    ["stage_db", "m"],
-    ["stage_chapter_db", "m"],
-    ["shop_template_db", "m"],
-
-    ["random_name_part1_db", "a"],
-    ["random_name_part2_db", "a"],
-
 ];
 
 declare function require(moduleName: string): any;

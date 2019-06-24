@@ -1,5 +1,3 @@
-import vLoadingScene from "./game/view/scene/vLoadingScene";
-
 const {ccclass, property} = cc._decorator;
 
 /**
@@ -16,7 +14,7 @@ export default class main extends cc.Component {
         // if (cc.sys.isNative) {
         //     view = new vUpdaterScene();
         // }else {
-            view = new vLoadingScene();
+            // view = new vLoadingScene();
         // }
 
         // let view = new vLoadingScene();

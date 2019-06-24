@@ -364,12 +364,6 @@ export default class mgrPlayer extends Manager {
             this._dailyUsedItems[itemId] = (this._dailyUsedItems[itemId] || 0) + (-amountDelta);
             this._historyDailyMaxUsedItems[itemId] = Math.max((this._historyDailyMaxUsedItems[itemId] || 0), this._dailyUsedItems[itemId]);
         }
-
-        if (itemId == Const.ITEM_ID_VIP && this.getItemAmount(itemId) > 0) {
-            // 获得vip，标记今天已领取
-            this.lastReceiveVipRewardTime = Tools.time();
-            this.saveRecord()
-        }
     }
 
 
@@ -521,9 +515,6 @@ export default class mgrPlayer extends Manager {
 
         if ( !!recoverData.recoverCopValue ) {
             return mgrSdk.getCopNumberValueByKey( recoverData.recoverCopValue );
-        }
-        else if (this.isVip()) {
-            return recoverData.vipRecoverAmount;
         } else {
             return recoverData.recoverAmount;
         }
@@ -640,53 +631,6 @@ export default class mgrPlayer extends Manager {
         }
 
         return result;
-    }
-
-    // ----- vip相关 -----
-    public static isVip() {
-        // cc.log(this.getItemAmount(Const.ITEM_ID_VIP));
-        return this.getItemAmount(Const.ITEM_ID_VIP) >= 1;
-    }
-
-    // --- 是否可以领vip奖励
-    public static canReceiveVipReward() {
-        if (!this.isVip()) {
-            return false;
-        }
-        let lastReceiveVipRewardTime = this.lastReceiveVipRewardTime || 0;
-        // cc.log(lastReceiveVipRewardTime);
-        // cc.log(Tools.time());
-        return !Tools.isOneDay(lastReceiveVipRewardTime, Tools.time());
-    }
-
-    /**
-     * name
-     */
-    public static buyVip(reason: string) {
-        if (this.isVip()) {
-            return;
-        }
-        mgrShop.requestBuy(Const.ITEM_ID_VIP, 1, reason || "未知来源")
-    }
-
-    /**
-     * st
-     */
-    public static tryReceiveVipReward(): any {
-        if (!this.canReceiveVipReward()) {
-            mgrTip.showMsgTip("现在不能领取哦");
-            return { errorCode: false, rewards: null };
-        }
-        let itemInfo = mgrCfg.get("item_template_db", Const.ITEM_ID_VIP);
-        let rewards = itemInfo.data || [];
-        for (let i = 0; i < rewards.length; i++) {
-            const reward = rewards[i];
-            this.addItemAmount(reward[0], reward[1], "魔仙特权每日领取")
-            mgrTip.addGotItemTip(reward[0], reward[1]);
-        }
-        this.lastReceiveVipRewardTime = Tools.time();
-        this.saveRecord();
-        return { errorCode: true, rewards: rewards };
     }
 
 

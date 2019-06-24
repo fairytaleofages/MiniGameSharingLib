@@ -1,9 +1,7 @@
 import Manager from "../../ulframework/manager/Manager";
-import Const from "../Const";
 import Tools from "../../ulframework/utils/Tools";
 import mgrCop from "./mgrCop";
 import mgrCfg from "./mgrCfg";
-import mgrStage from "./mgrStage";
 
 // const { ccclass } = cc._decorator;
 
@@ -69,7 +67,7 @@ export default class mgrAlu extends Manager {
         let checkDatas = {
             payChannel: this.getCheckPayChannel(),
             platform: this.getCheckPlatform(),
-            stageProgress: mgrStage.getStageProgress() || 0,
+            stageProgress: 0,
         };
 
         // 写入cop

@@ -15,8 +15,6 @@ import mgrAd from "./mgrAd";
 import mgrPlayer from "./mgrPlayer";
 import vMark from "../view/node/vMark";
 import vDebugPickerDialog from "../view/dialog/vDebugPickerDialog";
-// import vCountBadge from "../view/node/vCountBadge";
-// import vDebugPickerDialog from "../view/dialog/vDebugPickerDialog";
 
 const { ccclass } = cc._decorator;
 
@@ -786,19 +784,7 @@ export default class mgrTip extends Manager {
     }
 
     public static __commonRouter1(param: any) {
-        let itemId = param.itemId;
-        let shopData = mgrCfg.quietGet("shop_template_db", itemId);
-        if (shopData) {
-            mgrShop.requestBuy(itemId, 1, param.reason);
-            return true;
-        } else {
-            let shopRouterData = mgrCfg.get("shop_router_db", param.itemId);
-            if (shopRouterData) {
-                mgrShop.showRouterTargetWithDialog(param.itemId, param.reason);
-            }
-            //在这种情况下不视为正常完成流程
-            return true;
-        }
+        return true
     }
     public static __commonRouter2(param: any) {
         // mgrDirector.openDialog("vShopMallDialog");

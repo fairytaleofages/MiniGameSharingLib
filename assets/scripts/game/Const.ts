@@ -33,17 +33,6 @@ export enum ResourceType {
     animNode = 4,
 }
 
-/** 签到状态 */
-export enum SignState {
-    /** 可签到 */
-    canSign = 1,
-    /** 已签到 */
-    signed = 2
-    /** 签到结束，不能签到*/,
-    signOver = 3,
-    /** 等待间隔 */
-    waitGap = 4,
-}
 
 /** 引导黑幕显示规则 */
 export enum GuideMaskType {
@@ -127,7 +116,6 @@ export default class Const {
     static ITEM_ID_VIDEO_SHARE_COUNT = 9;
     static ITEM_ID_SHARE_COUNT = 10;
     static ITEM_ID_WIPE_AD = 11;
-   
 
     static ITEM_FLAG_MONEY = 1;
     static ITEM_FLAG_PART = 2;
